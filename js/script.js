@@ -31,20 +31,6 @@
 
 
 ///////////////////////////////////////
-//        Navigation
-///////////////////////////////////////
-
-  // mobile nav toggle open & close
-  $('.js-toggle-mobile-nav').on('click', function(e) {
-    $('.mobile-nav').toggleClass('is-open').toggleClass('is-closed');
-  });
-
-  // current page nav highlight
-  var currentPage = $('body').data('current-page');
-  $('.' + currentPage + ' .site-nav__item--' + currentPage).addClass('site-nav__item--current');
-
-
-///////////////////////////////////////
 //      SVG image swap
 ///////////////////////////////////////
 
@@ -60,75 +46,80 @@
 
 
 ///////////////////////////////////////
-//      Parallax
-//      [ example: <div class="parallax" data-parallax-speed="0.2"> ]
+//      Advent
 ///////////////////////////////////////
 
-  $(document).scroll(function(){
-    var scrolled = $(document).scrollTop();
-    $('.parallax').each(function(){
-      var speed = $(this).attr('data-parallax-speed');
-      var offset = $(this).offset();
-      var parallax = -(scrolled - offset.top) * speed ;
-      $(this).css('background-position', 'center ' + parallax + 'px');
-    });
-  });
 
 
-///////////////////////////////////////
-//    Generic modal
-///////////////////////////////////////
+function adventPageToggle(){
+  if($('.advent').hasClass('offer')){
+    $('.advent').removeClass('offer');
+    $('.advent').addClass('calendar');
+    $('.advent-toggle--text').html("View today's offer");
+  }else{
+    $('.advent').removeClass('calendar');
+    $('.advent').addClass('offer');
+    $('.advent-toggle--text').html("View the advent calendar");
+  }
+}
 
-  var modal          = $('.js-modal'),
-      modalLaunchBtn = $('.js-open-modal'),
-      modalCloseBtn  = $('.js-close-modal');
+$('.advent-toggle').click(function(){
+  adventPageToggle();
+});
 
-    // opens modal
-    function modalOpen(event){
-      event.preventDefault();
-      // disable scrolling on background content (doesn't work iOS)
-      $('body').addClass('disable-scroll');
-      // // open modal
-      modal.fadeIn('250', function(){
-        $(this).removeClass('is-closed').addClass('is-open');
-      });
+$('.advent-calendar-day').click(function(){
+  if($(this).hasClass('current')){
+    adventPageToggle();
+  }
+});
+
+function checkKey(e) {
+  e = e || window.event;
+  if (e.keyCode == '37') {
+    // left
+    if($('.advent').hasClass('calendar')){
+      $('.advent').removeClass('calendar');
+      $('.advent').addClass('offer');
     }
+  }else if (e.keyCode == '39') {
+     // right
+     if($('.advent').hasClass('offer')){
+       $('.advent').removeClass('offer');
+       $('.advent').addClass('calendar');
+     }
+  }
+}
+document.onkeydown = checkKey;
 
-    // closes modal
-    function modalClose(event){
-      event.preventDefault();
-      // enable scrolling
-      $('body').removeClass('disable-scroll');
-      // close modal with fade
-      modal.fadeOut('250', function(){
-        $(this).removeClass('is-open').addClass('is-closed');
-      });
-    }
 
-    // launches modal when offer is clicked
-    modalLaunchBtn.on('click', function(event) {
-      modalOpen(event);
-    });
+/*/////////////////////////////////////
+      Advent:
+        - Show current days offer, delete others
+        - Format calendar
+//////////////////////////////////////*/
 
-    // closes modal on close icon click
-    modalCloseBtn.on('click', function(event) {
-      modalClose(event);
-    });
+var currentDate = new Date();
 
-    // closes modal on background click
-    modal.on('click', function(event) {
-      if (event.target !== this){
-        return;
-      }
-      modalClose(event);
-    });
+$('.advent-calendar-day').each(function(){
+  var adventDateStr = $(this).attr('data-advent-date');
+  var adventDate = new Date(Date.parse(adventDateStr));
+  if(adventDate.toDateString() == currentDate.toDateString()){
+    $(this).addClass('current');
+  }else if(adventDate < currentDate){
+    $(this).addClass('past');
+  }else if(adventDate > currentDate){
+    $(this).addClass('future');
+  }
+});
 
-    // closes modal on escape key press
-    $(document).keyup(function(event) {
-       if (event.keyCode == 27) {
-         modalClose(event);
-        }
-    });
+$('.advent--page-offer').each(function(){
+  var adventDateStr = $(this).attr('data-advent-date');
+  var adventDate = new Date(Date.parse(adventDateStr));
+  if(adventDate.toDateString() == currentDate.toDateString()){
+  }else{
+    $(this).remove();
+  }
+});
 
 
 ///////////////////////////////////////////////////////////////////////////////

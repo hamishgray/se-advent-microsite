@@ -5,31 +5,93 @@ class: overview
 nav-order: 1
 ---
 
-<section class="section--fixed-bg intro site-header__offset text-white">
-  <div class="row row--padding">
-    <h1>{{ page.title }}</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam!</p>
-    <a href="offers.html" class="btn">Offers</a>
-  </div>
-</section>
 
-<section>
-  <div class="row row--padding row--columns-4-4-4-gutters">
-    <p class="row__column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam!</p>
-    <p class="row__column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam!</p>
-    <p class="row__column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam!</p>
-  </div>
-  <div class="row row--padding">
-    <a href="#" class="btn">button</a>
-  </div>
-</section>
+{% assign days = site.data.days %}
 
-<section class="section--fixed-bg another">
-  <div class="row row--padding row--columns-4-8-gutters">
-    <p class="row__column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam!</p>
-    <div class="row__column">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae harum quasi magni veniam eos laborum velit, provident laboriosam, distinctio laudantium voluptas natus sapiente nobis, amet. Maiores, quo eum iste quisquam!</p>
+
+<section class="advent offer">
+
+
+  <!-- CURRENT DAYS OFFER
+  ====================================-->
+  {% for day in days %}
+
+  <div class="advent--page advent--page-offer advent--page-active" data-advent-page="offer" data-advent-date="{{ day.date }}" style="background-image: url('{{ site.baseurl }}/img/days/bg-day-{{ forloop.index }}.jpg');">
+
+
+    <!-- SE ADVENT LOGO -->
+    <a class="logo logo--secret-escapes" href="https://www.secretescapes.com/">
+      <img class="js-svg-swap" src="{{ site.baseurl }}/img/logo/logo.png" alt="Secret Escapes logo">
+      <span class="current-advent">
+        <span class="current-advent__day">DAY</span>
+        <span class="current-advent__num">{{ forloop.index }}</span>
+      </span>
+    </a>
+
+
+    <!-- OFFER DESCRIPTION -->
+    <div class="advent--page-offer-content">
+
+      <div class="advent-offer row row--padding row--columns-8-4-gutters row--columns-vertical-align">
+        <div class="row__column">
+          <h2 class="advent-offer--title">{{ day.title }}</h2>
+          <hr />
+          <ul class="advent-offer--details">
+            <li>{{ day.location }}</li>
+            <li>From {{ day.price }} / {{ day.price-details }}</li>
+          </ul>
+          <a href="{{ day.link }}" class="btn advent-offer--btn">Claim this offer</a>
+        </div>
+        <div class="row__column">
+          <div class="advent-offer--logo" style="background-image: url('{{site.baseurl}}/img/days/partner-day-{{ forloop.index }}.png');"></div>
+          <p class="lead-paragraph">{{ day.description }}</p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+  {% endfor %}
+  <!-- END CURRENT DAYS OFFER -->
+
+
+  <div class="advent-toggle offer">
+    <div class="advent-toggle--content">
+      <span class="advent-toggle--btn">
+        <img src="{{ site.baseurl }}/img/icons/advent-toggle.png" class="js-svg-swap" width="40" alt="→">
+      </span>
+      <span class="advent-toggle--text">
+        View the advent calendar
+      </span>
     </div>
   </div>
+
+
+  <!-- FULL ADVENT CALENDAR
+  ====================================-->
+  <div class="advent--page advent--page-calendar" data-advent-page="calendar">
+    {% for day in days %}
+      <div class="advent-calendar-day color-white" data-advent-date="{{ day.date }}" style="background-image: url('{{ site.baseurl }}/img/days/bg-day-{{ forloop.index }}.jpg');">
+        <div class="advent-calendar-day--content">
+          <h4 class="advent-calendar-day--title">Day {{ forloop.index }}</h4>
+          <h6>{{ day.date | date: '%B %d' | upcase }}</h6>
+        </div>
+        <div class="advent-calendar-day--details">
+          <p>{{ day.description }}</p>
+        </div>
+      </div>
+    {% endfor %}
+
+    <div class="advent-calendar-day advent-calendar-day--christmas color-white">
+      <div class="advent-calendar-day--content">
+        <h4 class="advent-calendar-day--title">YAY CHRISTMAS!</h4>
+      </div>
+    </div>
+
+  </div><!-- END FULL ADVENT CALENDAR -->
+
+
+
 </section>
+

@@ -1,63 +1,55 @@
 // all custom styles for the site
 
 
-.site-footer {
-  padding-top: $margin;
-  padding-bottom: $margin;
-  color: darken( $white, 20 );
-  font-size: .8em;
-  font-weight: 400;
-  background-color: $black;
+// ---------- logo ----------
 
-  .footer-nav {
-    &__link {
+.logo{
+  position: absolute;
+  left: 50%;
+  width: 80%;
+  margin-left: -40%;
+  top: 3em;
+  z-index: 10;
+  text-align: center;
+  img {
+    max-width: 160px;
+    display: inline-block;
+  }
+  &:hover { text-decoration: none; }
+
+  .current-advent {
+    display: block;
+    span {
+      color: #fff;
+      font-family: $title-font-family;
+      font-weight: 800;
       text-transform: uppercase;
-      font-size: 1.2em;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      padding: 0 10px;
+      line-height: 0;
+    }
+    &__day { font-size: 2.4em; }
+    &__num { font-size: 2.4em; }
+  }
+  @include bp(large) {
+
+    position: absolute;
+    left: 2em;
+    margin-left: auto;
+    width: auto;
+    img {
+      max-width: 200px;
+    }
+
+    .current-advent {
+      span {
+        display: inline-block;
+        line-height: 0;
+      }
+      &__day { font-size: 4em; }
+      &__num { font-size: 7em; }
     }
   }
 }
 
-
-// ---------- Section styles ----------
-
-.section {
-  // Fixed background section
-  &--fixed-bg {
-    padding-top: 8em;
-    padding-bottom: 8em;
-    color: $white;
-    background-color: $se-light-grey;
-    background: $se-light-grey center no-repeat;
-    background-image: url('../img/bg/bg.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    p { font-weight: 400; }
-    .page-content &:first-child:before {
-      content: '';
-      display: block;
-      height: 3.375em;
-    }
-  }
-  // Coloured backgrounds
-  &--light-grey-bg {
-    background-color: $light-grey;
-  }
-  &--dark-grey-bg {
-    background-color: $dark-grey;
-    color: $white;
-  }
-  &--black-bg {
-    background-color: $black;
-    color: $white;
-  }
-  &--partner-bg {
-    background-color: $partner-secondary;
-    color: $white;
-  }
-}
 
 // ---------- button ----------
 
@@ -65,16 +57,338 @@
   @include transition;
   display:inline-block;
   padding: .5em 1.5em;
-  border: 1px solid $se-orange;
+  background-color: $theme-primary;
+  color: #fff;
   font-weight: 500;
-  border-radius: 10em;
   &:hover {
     color: white;
-    background-color: $se-orange;
+    background-color: $theme-secondary;
     text-decoration: none;
   }
   * + & { margin-top: 1em; }
 
-  &--solid { color: white; border: 0; background-color: $se-orange; }
   &--large { font-size: 1.2em; padding: .5em 3em; }
 }
+
+
+// ---------- Advent ----------
+
+
+.advent {
+  position: absolute;
+  overflow: hidden;
+  top:0;left:0;bottom:0;right:0;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top:0; left:0; right: 0;
+    z-index: 10;
+    height: 5px;
+    background-image: url('../img/bg/border-pattern.jpg');
+    background-position: center; background-repeat: repeat-x;
+  }
+
+  // ==== PAGE TOGGLE ====
+  &-toggle {
+    @include transition();
+    cursor: pointer;
+    position: fixed;
+    top:5px;
+    bottom:0;
+    width: 60px;
+    right: 0;
+    left: auto;
+    z-index: 100;
+    @include bp(large) {
+      width: 15%;
+      right: auto;
+      left: 85%;
+      background: -moz-linear-gradient(left,  rgba(#1b181c,1) 0%, rgba(#1b181c,0) 100%);
+      background: -webkit-linear-gradient(left,  rgba(#1b181c,1) 0%,rgba(#1b181c,0) 100%);
+      background: linear-gradient(to right,  rgba(#1b181c,1) 1%,rgba(#1b181c,0) 100%);
+    }
+    &--content {
+      position: absolute;
+      left: 0;
+      margin-left:0px;
+    }
+    &--btn {
+      width: 60px; height: 60px;
+      padding: 13px 10px;
+      background-color: #fff;
+      display: block;
+      img {
+        @include transition();
+        transform: rotate(0deg);
+        transform-origin: center;
+      }
+    }
+    &--text {
+      display: none;
+      @include bp(large) {
+        display: block;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        line-height: 1.4;
+        color: #fff;
+        transform: rotate(90deg);
+        transform-origin: left;
+        white-space: nowrap;
+        margin-left: 30px;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &--page {
+    // shared styles for days offer and calendar pages
+    @include transition();
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0; left:0;
+    overflow: hidden;
+    overflow-y: scroll;
+    @include bp(large) {
+      width: 85%;
+    }
+
+    // ==== OFFER PAGE ====
+    &-offer {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 1;
+      // offer description area
+      &-content {
+        text-align: center;
+        position: absolute;
+        left:0;right:0;bottom:auto;top:70%;
+        padding: 40px 0.5em;
+        background: -moz-linear-gradient(top,  rgba(215,218,226,0) 0%, rgba(215,218,226,1) 100%);
+        background: -webkit-linear-gradient(top,  rgba(215,218,226,0) 0%,rgba(215,218,226,1) 100%);
+        background: linear-gradient(to bottom,  rgba(215,218,226,0) 0%,rgba(215,218,226,1) 100%);
+        @include bp(large) {
+          left:0;right:0;bottom:0;top:auto;
+          padding: 80px 2em;
+        }
+        &:before {
+          content: url('../img/bg/offer-before.png');
+          position: absolute;
+          top: 0;
+          left: 50%;
+          margin-left: -575px;
+          z-index: -1;
+        }
+        &:after {
+          content: url('../img/bg/offer-after.png');
+          position: absolute;
+          top: 0;
+          right: 50%;
+          margin-right: -575px;
+          z-index: -1;
+        }
+      }
+
+      // ==== CALENDAR PAGE ====
+      &-calendar {}
+    }
+  }
+
+
+
+  /* ====== OFFER VIEW ===== */
+  &.offer {
+    .advent-toggle {
+      right: 0;
+      left: auto;
+      @include bp(large) {
+        left: 85%;
+      }
+    }
+    .advent-toggle--btn img { transform: rotate(0deg); }
+    .advent--page-offer {
+      left: 0%;
+      @include bp(large) { left: 0%; }
+    }
+    .advent--page-calendar {
+      left: 100%;
+      @include bp(large) { left: 85%; }
+    }
+  }
+
+
+  /* ====== CALENDAR VIEW ===== */
+  &.calendar {
+    .advent-toggle {
+      right: 0;
+      left: auto;
+      @include bp(large) {
+        right: auto;
+        left: 0%;
+      }
+      background: -moz-linear-gradient(left,  rgba(#1b181c,0) 0%, rgba(#1b181c,1) 100%);
+      background: -webkit-linear-gradient(left,  rgba(#1b181c,0) 0%,rgba(#1b181c,1) 100%);
+      background: linear-gradient(to right,  rgba(#1b181c,0) 0%,rgba(#1b181c,1) 100%);
+      &--content {
+        left: 100%;
+        margin-left:-60px;
+      }
+    }
+    .advent-toggle--btn img { transform: rotate(180deg); }
+    .advent--page-offer {
+      left: -100%;
+      @include bp(large) { left: -70%; }
+    }
+    .advent--page-calendar {
+      left: 0%;
+      @include bp(large) { left: 15%; }
+    }
+  }
+}
+
+
+
+
+
+/* ====== OFFER DETAILS ===== */
+.advent-offer {
+  text-align: left;
+  background-color: #fff;
+  padding: 1.5em 2em 2.5em;
+  @include bp(xxlarge) {
+    padding: 1.5em 110px 2.5em 2em;
+  }
+  &:after {
+    left: -4px;
+    right: -4px;
+    top: -4px;
+    bottom: -4px;
+    border: 2px solid white;
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &--title {
+    font-size: 1.6em;
+    color: $theme-primary;
+  }
+
+  &--details {
+    li {
+      list-style: none;
+      padding: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.9em;
+    }
+  }
+  &--btn {
+    position: absolute;
+    bottom: -1.5em;
+    z-index: 1;
+    padding: 0.5em 3em;
+  }
+
+  &--logo {
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    background-color: #e2e6ee;
+    border: 2px solid #fff;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 1;
+    top: -122px;
+    right: -4px;
+    @include bp(xxlarge) {
+      top: -30px;
+      right: -30px;
+    }
+  }
+}
+
+
+.advent-calendar-day {
+  @include transition();
+  text-align: center;
+  overflow: hidden;
+  float: left;
+  position: relative;
+  display: inline-block;
+  color: white;
+  background-color: $dark-grey;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 1em;
+
+  width: 50%;
+  height: auto;
+  @include bp(large) {
+    width: 20%;
+    height: 20%;
+  }
+
+  &.current { cursor: pointer; }
+
+  &--christmas {
+    background-color: $theme-primary;
+    width: 100%;
+    @include bp(large) {
+      width: 20%;
+    }
+  }
+
+  &--title { margin-bottom: 0; }
+
+  &.past:after { background-color: rgba($dark-grey, 0.7); }
+  &.past:hover:after { background-color: rgba($dark-grey, 0.9); }
+  &.current:after { background-color: rgba($theme-primary, 0.7); }
+  &.current:hover:after { background-color: rgba($theme-primary, 0.9); }
+  &.future { background-image: none !important; }
+
+  &:after {
+    @include transition();
+    content: "";
+    position: absolute;
+    top:0;left:0;bottom:0;right:0;
+    z-index: 0;
+  }
+
+  &--content {
+    @include transition();
+    position: relative;
+    z-index: 1;
+    @include bp(large) {
+      position: absolute;
+      top: 50%; left: 0; right: 0;
+      transform: translateY(-50%);
+    }
+  }
+  &--details {
+    @include transition();
+    display: none;
+    @include bp(large) {
+      padding: 20px;
+      display: block;
+      z-index: 1;
+      position: absolute;
+      top: 150%;
+      left: 0; right: 0;
+      transform: translateY(-50%);
+    }
+  }
+  &:hover {
+    .advent-calendar-day--content { top: -50%; }
+    .advent-calendar-day--details { top: 50%; }
+  }
+}
+
+

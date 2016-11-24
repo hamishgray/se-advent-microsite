@@ -4,8 +4,8 @@
 // -------- root typography styles --------
 
 $core-font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-$main-font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-$title-font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+$main-font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+$title-font-family: 'Playfair Display', 'Helvetica Neue', sans-serif;
 
 html { font-size:62.5%; }
 body,
@@ -28,6 +28,7 @@ h4, .h4,
 h5, .h5 {
   font-family: $title-font-family;
   color: $text-heading;
+  font-weight: 600;
   line-height: 1.2;
   margin-bottom: .5em;
 }
@@ -43,12 +44,12 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-size: 2em;
+  font-size: 1.728em;
   @include bp(medium) {
-    font-size: 2.488em;
+    font-size: 2.074em;
   }
   @include bp(large) {
-    font-size: 2.986em;
+    font-size: 2.488em;
   }
 }
 
@@ -63,6 +64,12 @@ h3, .h3 {
 }
 
 h4, .h4 { font-size: 1.728em; }
+
+h6,.h6 {
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  font-size: 0.9em;
+}
 
 
 // -------- Lists --------
@@ -131,4 +138,32 @@ hr {
   height: 1px;
   background-color: $light-grey;
   margin: 1em 0;
+}
+
+
+.lead-paragraph {
+  @include bp(large) {
+    font-size: 1.3em;
+    font-weight: 200;
+  }
+}
+
+
+
+.color-white {
+  color: #fff;
+  p,h1,h2,h3,h4,h5,h6,
+  .h1,.h2,.h3,.h4,.h5,.h6 { color: #fff; }
+  hr { background-color: $white-15; }
+  .list--horizontal li:after { background-color: $white-15; }
+  .list--lined li { border-bottom: 1px solid $white-15; }
+}
+
+.color-default {
+  color: $text-paragraph;
+  p,h1,h2,h3,h4,h5,h6,
+  .h1,.h2,.h3,.h4,.h5,.h6 { color: $text-heading; }
+  hr { background-color: $black-15; }
+  .list--horizontal li:after { background-color: $black-15; }
+  .list--lined li { border-bottom: 1px solid $black-15; }
 }
