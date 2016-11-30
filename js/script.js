@@ -80,12 +80,14 @@ function checkKey(e) {
     if($('.advent').hasClass('calendar')){
       $('.advent').removeClass('calendar');
       $('.advent').addClass('offer');
+      $('.advent-toggle--text').html("View the advent calendar");
     }
   }else if (e.keyCode == '39') {
      // right
      if($('.advent').hasClass('offer')){
        $('.advent').removeClass('offer');
        $('.advent').addClass('calendar');
+       $('.advent-toggle--text').html("View today's offer");
      }
   }
 }
@@ -120,6 +122,62 @@ $('.advent--page-offer').each(function(){
     $(this).remove();
   }
 });
+
+
+///////////////////////////////////////
+//    Generic modal
+///////////////////////////////////////
+
+  var modal          = $('.js-modal'),
+      modalLaunchBtn = $('.js-open-modal'),
+      modalCloseBtn  = $('.js-close-modal');
+
+  // opens modal
+  function modalOpen(event){
+    event.preventDefault();
+    // disable scrolling on background content (doesn't work iOS)
+    $('body').addClass('disable-scroll');
+    // // open modal
+    modal.fadeIn('250', function(){
+      $(this).removeClass('is-closed').addClass('is-open');
+    });
+  }
+
+  // closes modal
+  function modalClose(event){
+    event.preventDefault();
+    // enable scrolling
+    $('body').removeClass('disable-scroll');
+    // close modal with fade
+    modal.fadeOut('250', function(){
+      $(this).removeClass('is-open').addClass('is-closed');
+    });
+  }
+
+  // launches modal when offer is clicked
+  modalLaunchBtn.on('click', function(event) {
+    modalOpen(event);
+  });
+
+  // closes modal on close icon click
+  modalCloseBtn.on('click', function(event) {
+    modalClose(event);
+  });
+
+  // closes modal on background click
+  modal.on('click', function(event) {
+    if (event.target !== this){
+      return;
+    }
+    modalClose(event);
+  });
+
+  // closes modal on escape key press
+  $(document).keyup(function(event) {
+     if (event.keyCode == 27) {
+       modalClose(event);
+      }
+  });
 
 
 ///////////////////////////////////////////////////////////////////////////////

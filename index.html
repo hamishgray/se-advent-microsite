@@ -32,28 +32,59 @@ nav-order: 1
     <!-- OFFER DESCRIPTION -->
     <div class="advent--page-offer-content">
 
-      <div class="advent-offer row row--padding row--columns-8-4-gutters row--columns-vertical-align">
+      <div class="advent-offer row row--padding row--columns-8-4-gutters row--columns-vertical-align{% if day.partner %} has-partner{% endif %}">
         <div class="row__column">
           <h2 class="advent-offer--title">{{ day.title }}</h2>
+          {% if day.location or day.price %}
           <hr />
           <ul class="advent-offer--details">
-            <li>{{ day.location }}</li>
-            <li>From {{ day.price }} / {{ day.price-details }}</li>
+            {% if day.location %}<li>{{ day.location }}</li>{% endif %}
+            {% if day.price %}<li>From {{ day.price }} {{ day.price-details }}</li>{% endif %}
           </ul>
-          <a href="{{ day.link }}" class="btn advent-offer--btn">Claim this offer</a>
+          {% endif %}
+          <a href="{{ day.link }}" class="btn advent-offer--btn">BOOK NOW</a>
         </div>
         <div class="row__column">
-          <div class="advent-offer--logo" style="background-image: url('{{site.baseurl}}/img/days/partner-day-{{ forloop.index }}.png');"></div>
+          {% if day.partner %}
+          <div class="advent-offer--logo" style="background-image: url('{{site.baseurl}}/img/days/partner-{{ day.partner }}.png');"></div>
+          {% endif %}
           <p class="lead-paragraph">{{ day.description }}</p>
         </div>
       </div>
 
+
+      {% if day.terms-and-conditions %}
+      <!-- T&C MODAL -->
+      <p class="offer-tc"><a href="#" class="js-open-modal">Terms & conditions</a></p>
+      <div class="js-modal modal is-closed">
+        <div class="modal__wrap row">
+          <div class="js-close-modal modal__close"></div>
+        </div>
+        <div class="modal__wrap row">
+          <div class="modal__content row--padding">
+            <h4>Terms and Conditions</h4>
+            <p>{{ day.terms-and-conditions }}</p>
+          </div>
+        </div>
+      </div>
+      <!-- END T&C MODAL -->
+      {% endif %}
     </div>
 
 
   </div>
   {% endfor %}
   <!-- END CURRENT DAYS OFFER -->
+
+
+  <!-- HOLDING PAGE -->
+  <div class="advent--page advent--page-holding advent--page-active" data-advent-page="offer" style="background-image: url('{{ site.baseurl }}/img/days/bg-day-default.jpg');">
+    <!-- SE ADVENT LOGO -->
+    <a class="logo logo--secret-escapes" href="https://www.secretescapes.com/">
+      <img class="js-svg-swap" src="{{ site.baseurl }}/img/logo/logo.png" alt="Secret Escapes logo">
+    </a>
+  </div>
+  <!-- END HOLDING PAGE -->
 
 
   <div class="advent-toggle offer">
@@ -78,7 +109,7 @@ nav-order: 1
           <h6>{{ day.date | date: '%B %d' | upcase }}</h6>
         </div>
         <div class="advent-calendar-day--details">
-          <p>{{ day.description }}</p>
+          <h5>{{ day.title | upcase }}</h5>
         </div>
       </div>
     {% endfor %}

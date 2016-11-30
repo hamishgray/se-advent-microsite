@@ -65,6 +65,8 @@ h3, .h3 {
 
 h4, .h4 { font-size: 1.728em; }
 
+h5, .h5 { letter-spacing: 0.05em; }
+
 h6,.h6 {
   letter-spacing: 0.1em;
   font-weight: 500;
@@ -143,7 +145,7 @@ hr {
 
 .lead-paragraph {
   @include bp(large) {
-    font-size: 1.3em;
+    font-size: 1.2em;
     font-weight: 200;
   }
 }

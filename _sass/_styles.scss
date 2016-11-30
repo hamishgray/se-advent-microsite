@@ -60,6 +60,7 @@
   background-color: $theme-primary;
   color: #fff;
   font-weight: 500;
+  letter-spacing: 0.05em;
   &:hover {
     color: white;
     background-color: $theme-secondary;
@@ -95,8 +96,7 @@
     cursor: pointer;
     position: fixed;
     top:5px;
-    bottom:0;
-    width: 60px;
+    width: 40px;
     right: 0;
     left: auto;
     z-index: 100;
@@ -104,6 +104,7 @@
       width: 15%;
       right: auto;
       left: 85%;
+      bottom:0;
       background: -moz-linear-gradient(left,  rgba(#1b181c,1) 0%, rgba(#1b181c,0) 100%);
       background: -webkit-linear-gradient(left,  rgba(#1b181c,1) 0%,rgba(#1b181c,0) 100%);
       background: linear-gradient(to right,  rgba(#1b181c,1) 1%,rgba(#1b181c,0) 100%);
@@ -114,10 +115,14 @@
       margin-left:0px;
     }
     &--btn {
-      width: 60px; height: 60px;
-      padding: 13px 10px;
       background-color: #fff;
       display: block;
+      width: 40px; height: 40px;
+      padding: 5px 10px;
+      @include bp(large) {
+        width: 60px; height: 60px;
+        padding: 13px 10px;
+      }
       img {
         @include transition();
         transform: rotate(0deg);
@@ -135,7 +140,9 @@
         line-height: 1.4;
         color: #fff;
         transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
         transform-origin: left;
+        -ms-transform-origin: left;
         white-space: nowrap;
         margin-left: 30px;
         margin-top: 20px;
@@ -153,6 +160,7 @@
     overflow: hidden;
     overflow-y: scroll;
     @include bp(large) {
+      overflow-y: hidden;
       width: 85%;
     }
 
@@ -173,7 +181,7 @@
         background: linear-gradient(to bottom,  rgba(215,218,226,0) 0%,rgba(215,218,226,1) 100%);
         @include bp(large) {
           left:0;right:0;bottom:0;top:auto;
-          padding: 80px 2em;
+          padding: 80px 2em 40px;
         }
         &:before {
           content: url('../img/bg/offer-before.png');
@@ -193,8 +201,10 @@
         }
       }
 
-      // ==== CALENDAR PAGE ====
-      &-calendar {}
+    }
+    // ==== HOLDING PAGE ====
+    &-holding {
+      z-index: 0;
     }
   }
 
@@ -229,16 +239,19 @@
       @include bp(large) {
         right: auto;
         left: 0%;
+        background: -moz-linear-gradient(left,  rgba(#1b181c,0) 0%, rgba(#1b181c,1) 100%);
+        background: -webkit-linear-gradient(left,  rgba(#1b181c,0) 0%,rgba(#1b181c,1) 100%);
+        background: linear-gradient(to right,  rgba(#1b181c,0) 0%,rgba(#1b181c,1) 100%);
       }
-      background: -moz-linear-gradient(left,  rgba(#1b181c,0) 0%, rgba(#1b181c,1) 100%);
-      background: -webkit-linear-gradient(left,  rgba(#1b181c,0) 0%,rgba(#1b181c,1) 100%);
-      background: linear-gradient(to right,  rgba(#1b181c,0) 0%,rgba(#1b181c,1) 100%);
       &--content {
         left: 100%;
-        margin-left:-60px;
+        margin-left:-40px;
+        @include bp(large) {
+          margin-left:-60px;
+        }
       }
     }
-    .advent-toggle--btn img { transform: rotate(180deg); }
+    .advent-toggle--btn img { transform: rotate(180deg); -ms-transform: rotate(180deg); }
     .advent--page-offer {
       left: -100%;
       @include bp(large) { left: -70%; }
@@ -256,11 +269,17 @@
 
 /* ====== OFFER DETAILS ===== */
 .advent-offer {
+  display: inline-block;
   text-align: left;
   background-color: #fff;
   padding: 1.5em 2em 2.5em;
-  @include bp(xxlarge) {
-    padding: 1.5em 110px 2.5em 2em;
+  @include bp(large) {
+    display: flex;
+  }
+  &.has-partner {
+    @include bp(xxlarge) {
+      padding: 1.5em 110px 2.5em 2em;
+    }
   }
   &:after {
     left: -4px;
@@ -295,26 +314,39 @@
   }
 
   &--logo {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     text-align: center;
     background-color: #e2e6ee;
     border: 2px solid #fff;
-    background-size: 80%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
     z-index: 1;
-    top: -122px;
+    top: -62px;
     right: -4px;
     @include bp(xxlarge) {
+      width: 120px;
+      height: 120px;
       top: -30px;
       right: -30px;
     }
   }
 }
 
+.offer-tc {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 0 0 10px white;
+  color: #1a191b;
+  letter-spacing: 0.05em;
+  font-size: 0.9em;
+  margin-top: 40px;
+}
 
+
+// CALENDAR DAY IN GRID
 .advent-calendar-day {
   @include transition();
   text-align: center;
@@ -335,24 +367,8 @@
     width: 20%;
     height: 20%;
   }
-
   &.current { cursor: pointer; }
-
-  &--christmas {
-    background-color: $theme-primary;
-    width: 100%;
-    @include bp(large) {
-      width: 20%;
-    }
-  }
-
   &--title { margin-bottom: 0; }
-
-  &.past:after { background-color: rgba($dark-grey, 0.7); }
-  &.past:hover:after { background-color: rgba($dark-grey, 0.9); }
-  &.current:after { background-color: rgba($theme-primary, 0.7); }
-  &.current:hover:after { background-color: rgba($theme-primary, 0.9); }
-  &.future { background-image: none !important; }
 
   &:after {
     @include transition();
@@ -362,33 +378,57 @@
     z-index: 0;
   }
 
-  &--content {
-    @include transition();
-    position: relative;
+  &.past:after { background-color: rgba($dark-grey, 0.7); }
+  &.past:hover:after { background-color: rgba($dark-grey, 0.9); }
+  &.current:after { background-color: rgba($theme-primary, 0.7); }
+  &.current:hover:after { background-color: rgba($theme-primary, 0.9); }
+  &.future { background-image: none !important; }
+  &.future:hover { background-color: lighten($dark-grey, 5%); }
+}
+
+.advent-calendar-day--christmas {
+  background-color: $theme-primary;
+  width: 100%;
+  @include bp(large) {
+    width: 20%;
+  }
+}
+
+
+
+.advent-calendar-day--content {
+  @include transition();
+  position: relative;
+  z-index: 1;
+  @include bp(large) {
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+  }
+}
+
+.advent-calendar-day--details {
+  @include transition();
+  display: none;
+  @include bp(large) {
+    padding: 15px 20px 10px;
+    display: block;
     z-index: 1;
-    @include bp(large) {
-      position: absolute;
-      top: 50%; left: 0; right: 0;
-      transform: translateY(-50%);
-    }
+    position: absolute;
+    top: 150%;
+    left: 0; right: 0;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    h5 { margin: 0;}
   }
-  &--details {
-    @include transition();
-    display: none;
-    @include bp(large) {
-      padding: 20px;
-      display: block;
-      z-index: 1;
-      position: absolute;
-      top: 150%;
-      left: 0; right: 0;
-      transform: translateY(-50%);
-    }
-  }
-  &:hover {
-    .advent-calendar-day--content { top: -50%; }
-    .advent-calendar-day--details { top: 50%; }
-  }
+}
+.advent-calendar-day.past:hover,
+.advent-calendar-day.current:hover {
+  .advent-calendar-day--content { top: -50%; }
+  .advent-calendar-day--details { top: 50%; }
 }
 
 
