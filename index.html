@@ -32,17 +32,27 @@ nav-order: 1
     <!-- OFFER DESCRIPTION -->
     <div class="advent--page-offer-content">
 
-      <div class="advent-offer row row--padding row--columns-8-4-gutters row--columns-vertical-align{% if day.partner %} has-partner{% endif %}">
+      <div class="advent-offer row row--padding row--columns-8-4 row--columns-vertical-align{% if day.partner %} has-partner{% endif %}">
         <div class="row__column">
           <h2 class="advent-offer--title">{{ day.title }}</h2>
-          {% if day.location or day.price %}
           <hr />
-          <ul class="advent-offer--details">
-            {% if day.location %}<li>{{ day.location }}</li>{% endif %}
-            {% if day.price %}<li>From {{ day.price }} {{ day.price-details }}</li>{% endif %}
-          </ul>
+
+          {% if day.location or day.price %}
+          <p class="advent-offer--details">
+            {% if day.location %}
+              {{ day.location }}
+            {% endif %}
+            {% if day.price %}
+              <span class="textbar"> I </span>
+              From {{ day.price }} {{ day.price-details }}
+            {% endif %}
+          </p>
           {% endif %}
+
+          <p>As Christmas approaches, we're here to make your holidays even happier. Visit our advent calendar each day to discover a different luxury getaway paired with a special gift or exclusive treat.</p>
+
           <a href="{{ day.link }}" class="btn advent-offer--btn">BOOK NOW</a>
+
         </div>
         <div class="row__column">
           {% if day.partner %}
@@ -50,6 +60,7 @@ nav-order: 1
           {% endif %}
           <p class="lead-paragraph">{{ day.description }}</p>
         </div>
+
       </div>
 
 
@@ -116,7 +127,7 @@ nav-order: 1
 
     <div class="advent-calendar-day advent-calendar-day--christmas color-white">
       <div class="advent-calendar-day--content">
-        <h4 class="advent-calendar-day--title">YAY CHRISTMAS!</h4>
+        <h4 class="advent-calendar-day--title"> It's Christmas</h4>
       </div>
     </div>
 

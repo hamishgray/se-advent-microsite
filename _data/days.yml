@@ -8,52 +8,51 @@
     class: mastercard
     partner: no1-lounges
     link: https://www.secretescapes.com/5-star-luxurious-bangkok-chiang-mai-and-phuket-holiday-from-shangri-la-city-stays-to-a-beach-break-in-thailand/sale
-    terms-and-conditions: >
-      The first 20 bookings will receive two complimentary entry passes (one per person) to No1 Lounges, with one glass of house champagne per person. Booking must be made for 'Exceptionally luxurious holiday in Bangkok, Chiang Mai & Phuket' only and the transaction must be completed between 00:01am and 11:59pm GMT on 1st December 2016. You must be aged 18+ to qualify and lounge entry must be redeemed by 31st March 2017. Cancellation of the booking for any reason voids No1 Lounge entry. Offer applicable to any No1 Lounge in the collection – this excludes Clubrooms. The pass and champagne are non-transferable and no cash or credit alternatives will be substituted for the prizes on offer. The bookers will be contacted via email by No1 Lounges with instructions on how to redeem the pass and will be sent to the booker’s membership e-mail address. Promoter reserves the right to refuse to honour any entry or to recover the full value of any prize if it considers there has been an abuse or breach of the terms and conditions of this Prize Draw. For full usage terms for No1 Lounges visit https://no1lounges.com/terms.
+    terms-and-conditions: "The first 20 bookings will receive two complimentary entry passes (one per person) to No1 Lounges, with one glass of house champagne per person. Booking must be made for 'Exceptionally luxurious holiday in Bangkok, Chiang Mai & Phuket' only and the transaction must be completed between 00:01am and 11:59pm GMT on 1st December 2016. You must be aged 18+ to qualify and lounge entry must be redeemed by 31st March 2017. Cancellation of the booking for any reason voids No1 Lounge entry. Offer applicable to any No1 Lounge in the collection – this excludes Clubrooms. The pass and champagne are non-transferable and no cash or credit alternatives will be substituted for the prizes on offer. The bookers will be contacted via email by No1 Lounges with instructions on how to redeem the pass and will be sent to the booker’s membership e-mail address. Promoter reserves the right to refuse to honour any entry or to recover the full value of any prize if it considers there has been an abuse or breach of the terms and conditions of this Prize Draw. For full usage terms for No1 Lounges visit https://no1lounges.com/terms."
 
   - date: 2016-12-02
-    title:
-    description:
-    location:
-    price:
-    price-details:
+    title: Charming Bruges break with Eurostar or Eurotunnel
+    description: Book today and you'll receive £25 credit to spend on another great stay in 2017*
+    location: Hotel Aragon, Belgium
+    price: £135
+    price-details: per person for two nights
     class:
     partner:
-    link:
-    terms-and-conditions:
+    link: https://www.secretescapes.com/charming-bruges-break-with-eurostar-or-eurotunnel-travel-hotel-aragon-belgium/sale
+    terms-and-conditions: "*Booking must be made for Charming Bruges break with Eurostar or Eurotunnel travel only and the transaction must be completed between 00:01am and 11:59pm GMT on 2nd December 2016. £25 credit will be applied to your Secret Escapes account by the 31th December 2016. It may be used for bookings of £99 or more and must be redeemed by 31st March 2017. You must be aged 18+ to qualify. The credit will be applied to the original booker's account and is non-transferable. No cash alternative will be offered."
 
   - date: 2016-12-03
-    title:
-    description:
-    location:
-    price:
-    price-details:
+    title: Ellenborough Park - a honey-hued spa retreat on the original Cheltenham racecourse estate
+    description: Enjoy a complimentary bottle of prosecco when you book this picture-perfect Cotswolds stay
+    location: Cheltenham, Cotswolds
+    price: £139
+    price-details: per room per night
     class:
     partner:
-    link:
-    terms-and-conditions:
+    link: https://www.secretescapes.com/ellenborough-park-cheltenham-cotswolds/sale
+    terms-and-conditions: "Booking must be made for Ellenborough Park only and the transaction must be completed between 00:01am and 00:00pm GMT on 3rd December 2016. You must be aged 18+ to qualify. No cash alternative will be offered. One bottle of prosecco per room, per stay will be included in the room on arrival."
 
   - date: 2016-12-04
-    title:
-    description:
-    location:
-    price:
-    price-details:
-    class:
-    partner:
-    link:
-    terms-and-conditions:
+    title: Rosewood London - an outstanding luxury hotel on the edge of Covent Garden
+    description: For stays of two nights or more, you'll receive a beautiful Harvey Nichols hamper worth £55*
+    location: Near Covent Garden, London
+    price: £289
+    price-details: per room per night
+    class: harveynichols
+    partner: harveynichols
+    link: https://www.secretescapes.com/rosewood-london-near-covent-garden-london/sale
+    terms-and-conditions: "*Bookings of two consecutive nights of more will receive one complimentary hamper (one per booking, per stay) from Harvey Nichols worth £55 (retail price at time of send). Booking must be made for 'Rosewood London' only and the transaction must be completed between 00:01am and 00:00pm GMT on 4th December 2016. You must be aged 18+ to qualify and hampers must be claimed by 16th December 2016. Cancellation of the booking for any reason voids the free hamper. The prizes are non-transferable and no cash or credit alternatives will be substituted for the prizes on offer. In the event that the prizes offered are unavailable due to circumstances beyond our control, the promoter reserves the right to offer an alternative prize of equal or greater value. The bookers will be contacted via email by Harvey Nichols with instructions on how to redeem the pass and will be sent to the booker’s membership e-mail address. Promoter reserves the right to refuse to honour any entry or to recover the full value of any prize if it considers there has been an abuse or breach of the terms and conditions of this Prize Draw. For full usage terms for Harvey Nichols visit - http://www.harveynichols.com/gifts-hampers/?p=1/"
 
   - date: 2016-12-05
-    title:
-    description:
-    location:
-    price:
-    price-details:
-    class:
-    partner:
-    link:
-    terms-and-conditions:
+    title: Hotel Les Dames du Panthéon - a boutique hideaway in Paris's historic Saint-Germain
+    description: Book a stay at this chic hotel in the heart of Paris and receive a Glossybox full of beauty goodies worth at least £80*
+    location: Paris, France
+    price: £105
+    price-details: per room per night
+    class: glossybox
+    partner: glossybox
+    link: https://www.secretescapes.com/hotel-les-dames-du-pantheon-paris-france/sale
+    terms-and-conditions: "*Booking must be made for 'Hotel Les Dames du Panthéon' only and the transaction must be completed between 00:01am and 00:00pm GMT on 5th December 2016. You must be aged 18+ to qualify. Cancellation of the booking for any reason voids the free Glossybox. The giveaway is non-transferable and no cash or credit alternatives will be substituted. In the event that the Glossybox offered is unavailable due to circumstances beyond our control, the promoter reserves the right to offer an alternative prize of equal or greater value. The bookers will be contacted via email by Glossybox with instructions on how to redeem their free box and this will be sent to the booker’s membership e-mail address. Promoter reserves the right to refuse to honour any entry or to recover the full value of any prize if it considers there has been an abuse or breach of the terms and conditions. For full usage terms from Glossybox, please see thier own terms and conditions: https://www.glossybox.co.uk/terms-and-conditions/"
 
   - date: 2016-12-06
     title:
