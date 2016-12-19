@@ -150,44 +150,44 @@
     terms-and-conditions: Booking must be made for Hotel Westminster only and the transaction must be completed between 00:01am and 11:59pm GMT on 15th December 2016. You must be aged 18+ to qualify. You will receive one bottle of champagne per room, per stay and access to the spa facilities once per person, per stay, with no treatments included. The giveaway is non-transferrable and no cash alternative will be offered.
 
   - date: 2016-12-16
-    title: "Best Western Chilworth Manor Hotel"
-    description: A manor hotel between the New Forest and South Downs, with breakfast and dinner
+    title: "Best Western Chilworth Manor Hotel: a traditional country pile just outside Southampton"
+    description: Book this rural retreat and we'll include an Afternoon Cake Cruise on a handsome 1930s motor boat
     location: Chilworth, Hampshire
-    price: £129
+    price: £109
     price-details: per room per night
-    partner:
+    partner: betsie-jane
     link: https://www.secretescapes.com/best-western-chilworth-manor-hotel-chilworth-hampshire/sale
-    terms-and-conditions:
+    terms-and-conditions: Booking must be made for Best Western Chilworth Manor Hotel only and the transaction must be completed between 00:01am and 11:59pm GMT on 16th December 2016. You will receive one voucher per booking for an Afternoon Cake Cruise on the Betsie Jane of Cowes 1938 motor boat with Blue Box Sailing. Additional vouchers may be purchased for £39 per person. The minimum age allowed onboard is 14 and anyone between the age of 14-17 must be accompanied by a parent or guardian. No cash alternative will be offered and vouchers must be redeemed by the 1st May 2017. Bookers will be contacted via email by Blue Box Sailing with instructions on how to redeem the voucher and this will be sent to the booker’s membership e-mail address. For more information on the boat and the cruise please <a href="http://www.betsiejane.co.uk/">click here</a>
 
   - date: 2016-12-17
-    title: "Prague & Buda"
-    description:
-    location:
-    price:
-    price-details:
+    title: "Prague and Budapest tour: a tale of two iconic Eastern European cities"
+    description: Book this enchanting Prague and Budapest holiday and receive £25 Secret Escapes credit to spend in the New Year
+    location: Czech Republic & Hungary
+    price: 259
+    price-details: per person for 4 nights
     partner:
-    link:
-    terms-and-conditions:
+    link: https://www.secretescapes.com/vibrant-prague-and-budapest-city-break-czech-republic-and-hungary/sale
+    terms-and-conditions: "Booking must be made for 'Vibrant Prague & Budapest city break' only and the transaction must be completed between 00:01am and 11:59pm GMT on 17th December 2016. £25 credit will be applied to your Secret Escapes account by the 31st December 2016. It may be used for bookings of £99 or more and must be redeemed by 31st March 2017. You must be aged 18+ to qualify. The credit will be applied to the original booker's account and is non-transferable. No cash alternative will be offered."
 
   - date: 2016-12-18
-    title: "M by Montcalm"
-    description:
-    location:
-    price:
-    price-details:
+    title: "M by Montcalm Shoreditch London Tech City: a cool base in London's hippest 'hood"
+    description: Book during today's exclusive 24-hour sale to receive up to 50% off this cool city pad
+    location: Shoreditch, London
+    price: 138
+    price-details: per room per night
     partner:
-    link:
-    terms-and-conditions:
+    link: https://www.secretescapes.com/m-by-montcalm-shoreditch-london-tech-city-shoreditch-london/sale
+    terms-and-conditions: "Booking must be made for M by Montcalm Shoreditch London Tech City only and the transaction must be completed between 00:01am and 11:59pm GMT on 18th December 2016. The discount is non-transferable and no cash or credit alternatives will be substituted for the discount on offer. The offer is 100% non-refundable and date changes are not possible once the booking has been made."
 
   - date: 2016-12-19
-    title: "Middleton Lodge"
-    description:
-    location:
-    price:
+    title: "Middleton Lodge: a romantic retreat on a beautiful 200-acre estate"
+    description: Book today's cosy country retreat and receive a letterbox bouquet from Bloom & Wild
+    location: Richmond, North Yorkshire
+    price: 89
     price-details:
-    partner:
-    link:
-    terms-and-conditions:
+    partner: bloom-and-wild
+    link: https://www.secretescapes.com/middleton-lodge-richmond-north-yorkshire/sale
+    terms-and-conditions: Booking must be made for Middleton Lodge only and the transaction must be completed between 00:01am and 11:59pm GMT on 19th December 2016. The first 30 bookings only will receive one 'Jessie' letterbox bouquet (one per booking), subject to availability. Bookers will be contacted via email by Bloom & Wild with instructions on how to redeem the bouquet and this will be sent to the booker’s membership e-mail address.
 
   - date: 2016-12-20
     title: "CSky Hotel"
